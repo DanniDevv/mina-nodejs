@@ -6,8 +6,8 @@ exports.createUsuario = async (req, res) => {
     const newUsuario = new Usuario({
       codigo_usuario: req.body.codigo_usuario,
       nombre: req.body.nombre,
-      correo: req.body.correo,
-      contraseña: req.body.contraseña
+      email: req.body.email,
+      password: req.body.password
     })
     const usuarioSaved = await newUsuario.save()
     res.status(201).json(usuarioSaved)
