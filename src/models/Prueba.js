@@ -1,16 +1,12 @@
 const mongoose = require('../database')
+// const Pregunta = require('./Pregunta')
 
 const PruebaSchema = new mongoose.Schema({
-  pregunta: {
-    type: String,
-    required: true,
-    maxlength: 200
-  },
-  respuestas: {
-    type: String,
-    required: true
-  },
-  facha: {
+  preguntas: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Preguntas'
+  }],
+  fecha: {
     type: Date,
     required: true
   },
