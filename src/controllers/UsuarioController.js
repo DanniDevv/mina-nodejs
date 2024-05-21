@@ -1,10 +1,16 @@
 const Usuario = require('../models/Usuario')
 
+// Función para generar un código de usuario aleatorio
+function generateCodigoUsuario () {
+  const randomNumber = Math.floor(100000 + Math.random() * 900000)
+  return `A${randomNumber}`
+}
+
 // Crear un nuevo usuario
 exports.createUsuario = async (req, res) => {
   try {
     const newUsuario = new Usuario({
-      codigo_usuario: req.body.codigo_usuario,
+      codigo_usuario: generateCodigoUsuario(),
       nombre: req.body.nombre,
       email: req.body.email,
       password: req.body.password
@@ -47,8 +53,8 @@ exports.updateUsuario = async (req, res) => {
       {
         codigo_usuario: req.body.codigo_usuario,
         nombre: req.body.nombre,
-        correo: req.body.correo,
-        contraseña: req.body.contraseña
+        email: req.body.email,
+        password: req.body.password
       },
       { new: true }
     )

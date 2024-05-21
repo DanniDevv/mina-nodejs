@@ -4,7 +4,8 @@ const UsuarioSchema = new mongoose.Schema({
   codigo_usuario: {
     type: String,
     required: true,
-    maxlength: 7
+    maxlength: 7,
+    unique: true
   },
   nombre: {
     type: String,
@@ -14,7 +15,8 @@ const UsuarioSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    maxlength: 200
+    maxlength: 200,
+    unique: true
   },
   password: {
     type: String,
